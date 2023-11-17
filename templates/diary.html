@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Fitness Website</title>
+</head>
+<body>
+    <div class="nav">
+        <ul id="responsivenav">
+            <li><a href="heart.html">Heart</a></li>
+            <li><a href="diet.html">Diet</a></li>
+            <li><a href="/diary">Diary</a></li>
+            <li><a href="/homepage"><img class="homeicon" src="static/homeicon.png" alt="Home"></a></li>
+            <li><a href="steps.html">Steps</a></li>
+            <li><a href="sleep.html">Sleep</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+    </div>
+    <div id="resizednav">
+        <ul>
+            <li><a href="/navbar"><img class="menuburger" src="static/menuburger.png" alt="menu"></a></li>
+        </ul>
+    </div>
+    <div class="page">
+        <p class="welcome">{{ current_user.name }}'s Diary</p>
+        <form class="diary-entry" method="post" action="{{ url_for('diary') }}">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
+            <label for="content">Content:</label>
+            <textarea name="content" id="content" rows="4" required></textarea>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <button type="submit">Save Entry</button>
+        </form>
+        <a class="logout" href="/logout">Log Out</a>
+    </div>
+    <div class="background">
+        <div class="title">
+        DIARY
+        </div>
+        {% for entry in diary_entries[::-1] %}
+            <div class="diary-box">
+                <p class="diary-box-text">
+                    {{ entry.date.strftime('%Y-%m-%d %H:%M:%S') }} - {{ entry.title }}<br>
+                    {{ entry.content }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

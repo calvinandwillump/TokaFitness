@@ -1,0 +1,39 @@
+body {
+    background-color: #707070;
+    margin: 0;
+    font-family: 'Calibri';
+    height: 100%;
+}
+
+.nav {
+    text-align: center;
+    background-color: #707070;
+    height: 100%;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-color: #707070;
+}
+
+ul li a {
+    display: block;
+    padding: 20px 50px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.homeicon {
+    height: 20px;
+    width: auto;
+}
+
+ul li a:hover:not(.active) {
+    background-color: grey;
+}

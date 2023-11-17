@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Fitness Website</title>
+</head>
+<body>
+    <div class="nav">
+        <ul id="responsivenav">
+            <li><a href="heart.html">Heart</a></li>
+            <li><a href="diet.html">Diet</a></li>
+            <li><a href="/diary">Diary</a></li>
+            <li><a href="/homepage"><img class="homeicon" src="static/homeicon.png" alt="Home"></a></li>
+            <li><a href="steps.html">Steps</a></li>
+            <li><a href="sleep.html">Sleep</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+    </div>
+    <div id="resizednav">
+        <ul>
+            <li><a href="/navbar"><img class="menuburger" src="static/menuburger.png" alt="menu"></a></li>
+        </ul>
+    </div>
+    <div class="page">
+        <p class="welcome">Welcome Back, {{ current_user.name }}!</p>
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        <a class="logout" href="/logout">Log Out</a>
+    </div>
+    <div class="background">
+        <div class="title">
+        NEWS
+        </div>
+        <div class="news-box">
+            <div class="news-box-video">
+                <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/eEzD-Y97ges"
+                frameborder="0"
+                allowfullscreen
+                ></iframe>
+            </div>
+            <p class="news-box-text">
+                placeholder
+            </p>
+        </div>
+        <div class="news-box">
+            <div class="news-box-video">
+                <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/eEzD-Y97ges"
+                frameborder="0"
+                allowfullscreen
+                ></iframe>
+            </div>
+            <p class="news-box-text">
+                placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
+            </p>
+        </div>
+        <div class="news-box">
+            <div class="news-box-video">
+                <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/eEzD-Y97ges"
+                frameborder="0"
+                allowfullscreen
+                ></iframe>
+            </div>
+            <p class="news-box-text">
+                
+            </p>
+        </div>
+    </div>
+</body>
+</html>
