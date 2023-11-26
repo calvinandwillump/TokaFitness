@@ -1,0 +1,1 @@
+python -m pip install flask flask-login flask-wtf flask-sqlalchemy pyodbc cryptography
