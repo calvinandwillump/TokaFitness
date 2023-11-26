@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+    <title>ToKa Fitness</title>
+</head>
+<body>
+    <div class="nav">
+        <ul id="responsivenav">
+            <li><a href="">Workout</a></li>
+            <li><a href="">Diet</a></li>
+            <li><a href="/diary">Diary</a></li>
+            <li><a href="/homepage"><img class="homeicon" src="static/homeicon.png" alt="Home"></a></li>
+            <li><a href="">Sleep</a></li>
+            <li><a href="/subscription">Subscription</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </div>
+    <div id="resizednav">
+        <ul>
+            <li><a href="/navbar"><img class="menuburger" src="static/menuburger.png" alt="menu"></a></li>
+        </ul>
+    </div>
+    <div class="page">
+        <p class="welcome">Upgrade your Experience {{ current_user.name }}!</p>
+        <form id="subscription" class="subscription" method="post" action="{{ url_for('subscription') }}">
+            {{ form.hidden_tag() }}
+            <label for="card_number">Card Number:</label>
+            {{ form.card_number(class="form-control", placeholder="Card Number") }}
+            <label for="expiration_date">Expiration Date (MM/YY):</label>
+            {{ form.expiration_date(class="form-control", placeholder="MM/YY") }}
+            <label for="cvv">CVV:</label>
+            {{ form.cvv(class="form-control", placeholder="CVV") }}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <button type="submit">Subscribe</button>
+        </form>
+        <a class="logout" href="/logout">Log Out</a>
+    </div>
+    <div class="background">
+        <div class="title">
+            Subscription
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+    <title>ToKa Fitness</title>
+</head>
+<body>
+    <div class="nav">
+        <ul id="responsivenav">
+            <li><a href="">Workout</a></li>
+            <li><a href="">Diet</a></li>
+            <li><a href="/diary">Diary</a></li>
+            <li><a href="/homepage"><img class="homeicon" src="static/homeicon.png" alt="Home"></a></li>
+            <li><a href="">Sleep</a></li>
+            <li><a href="/subscription">Subscription</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </div>
+    <div id="resizednav">
+        <ul>
+            <li><a href="/navbar"><img class="menuburger" src="static/menuburger.png" alt="menu"></a></li>
+        </ul>
+    </div>
+    <div class="page">
+        <p class="welcome">{{ current_user.name }}'s Settings</p>
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        <form method="POST" action="{{ url_for('settings') }}">
+            {{ change_password_form.hidden_tag() }}
+            <label for="current_password">Current Password:</label>
+            {{ change_password_form.current_password }}
+            <label for="new_password">New Password:</label>
+            {{ change_password_form.new_password }}
+            <label for="confirm_password">Confirm New Password:</label>
+            {{ change_password_form.confirm_password }}
+            <button type="submit">Change Password</button>
+        </form>
+        <a class="logout" href="/logout">Log Out</a>
+    </div>
+    <div class="background">
+        <div class="title">
+        Settings
+        </div>
+    </div>
+</body>
+</html>
