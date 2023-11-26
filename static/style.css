@@ -3,6 +3,11 @@
     visibility: hidden;
 }
 
+#menupage {
+    display: none;
+    visibility: hidden;
+}
+
 body {
     background-color: #A4A4A4;
     margin: 0;
